@@ -1,4 +1,4 @@
-📊 #**Sales Predict** 🚀
+📊 **Sales Predict** 🚀
 
 Welcome to Sales Predict! A Flask-based web app for processing sales data, generating forecasts, and calculating total quantities. Supports multiple file formats and offers a user-friendly interface for data analysis and predictions. 🎉
 
