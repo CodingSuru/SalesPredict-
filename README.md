@@ -1,8 +1,8 @@
-#📊 Sales Predict 🚀
+📊 #Sales Predict 🚀
 
 Welcome to Sales Predict! A Flask-based web app for processing sales data, generating forecasts, and calculating total quantities. Supports multiple file formats and offers a user-friendly interface for data analysis and predictions. 🎉
 
-#📋 Overview
+📋 #Overview
 
 Upload sales data (Excel, CSV, JSON, XML, SQL, TXT) 📂
 Calculate total quantities for companies in a date range 📈
@@ -11,7 +11,7 @@ Interactive web interface 🌐
 
 Built with Python, Flask, Pandas, and Scikit-learn, with robust error handling and data validation. 💻
 
-#🛠️ Features
+🛠️ #Features
 
 File Upload: Supports various formats with validation 📥
 Data Processing: Cleans and preprocesses data 🧹
@@ -20,7 +20,7 @@ Forecasting: Daily, Weekly, or Monthly predictions 🔮
 Web UI: Easy data upload and results viewing 🌍
 Error Handling: Detailed logs and error messages 🔍
 
-#📁 Structure
+📁 #Structure
 📦 SalesPredict
 ├── 📂 excels          # Output Excel files
 ├── 📂 upload          # Uploaded data
@@ -30,7 +30,7 @@ Error Handling: Detailed logs and error messages 🔍
 ├── 📜 data_processing.py  # Data processing & forecasting
 └── 📜 README.md       # Documentation
 
-#🛠️ Setup
+🛠️ #Setup
 Prerequisites
 
 Python 3.8+ 🐍
@@ -57,7 +57,7 @@ python main.py
 Access at http://localhost:5000. 🌐
 
 
-#🚀 Usage
+🚀 #Usage
 
 Web Interface: Visit http://localhost:5000 to upload files and view companies. 🖥️
 Upload Data: Use supported formats (.xlsx, .csv, .json, .xml, .sql, .txt). 📤
@@ -81,7 +81,7 @@ curl "http://localhost:5000/get_quantity?company=Acme&from_date=01-01-2023&to_da
 # Forecast
 curl -X POST -H "Content-Type: application/json" -d '{"company":"Acme","from_date":"01-01-2023","to_date":"31-12-2023","frequency":"Monthly"}' http://localhost:5000/forecast
 
-#📊 Data Requirements
+📊 #Data Requirements
 
 Company Name: e.g., "Acme Corp" 🏢
 Date: e.g., DD-MM-YYYY 📅
@@ -89,20 +89,20 @@ Quantity: Numeric value 📦
 Item: Optional, defaults to "Default Item" 🛒
 
 Supports case-insensitive column names (e.g., "Company", "Qty").
-#🐛 Debugging
+🐛 #Debugging
 
 Logs: Check console for debug messages. 📜
 Errors: JSON responses for invalid inputs. ⚠️
 Paths: Ensure excels and upload are writable. 🗂️
 
-#🔮 Future Improvements
+🔮 #Future Improvements
 
 Support more file formats 📄
 Enhance forecasting model 🧠
 Add interactive charts 📉
 Implement authentication 🔒
 
-#📜 License
+📜 #License
 MIT License. See LICENSE for details. 📝
 
 #🙌 Contributing
