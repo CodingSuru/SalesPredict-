@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Data Analysis & Forecasting</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sales Data Analysis & Forecasting</h1>
+        </header>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'dataFetcher')">Data Fetcher</button>
+            <button class="tab-btn" onclick="openTab(event, 'forecaster')">Forecaster</button>
+        </div>
+
+        <div id="dataFetcher" class="tab-content active">
+            <div class="card">
+                <h2>Data Fetcher</h2>
+                <div class="form-group">
+                    <label for="fetchCompany">Company Name:</label>
+                    <select id="fetchCompany" class="form-control">
+                        <option value="">Select a company...</option>
+                        {% for company in companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fetchFromDate">From Date:</label>
+                    <input type="date" id="fetchFromDate" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="fetchToDate">To Date:</label>
+                    <input type="date" id="fetchToDate" class="form-control">
+                </div>
+                <button class="btn primary" onclick="fetchQuantity()">Show Total Quantity</button>
+                
+                <div class="result-container" id="quantityResults" style="display: none;">
+                    <table id="quantityTable" class="hidden">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Company Name</td>
+                                <td id="resultCompany"></td>
+                            </tr>
+                            <tr>
+                                <td>From Date</td>
+                                <td id="resultFromDate"></td>
+                            </tr>
+                            <tr>
+                                <td>To Date</td>
+                                <td id="resultToDate"></td>
+                            </tr>
+                            <tr>
+                                <td>Total Quantity (All Items)</td>
+                                <td id="resultQuantity"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="forecaster" class="tab-content">
+            <div class="card">
+                <h2>Forecaster</h2>
+                <div class="form-group">
+                    <label for="foreCompany">Company Name:</label>
+                    <select id="foreCompany" class="form-control">
+                        <option value="">Select a company...</option>
+                        {% for company in companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="foreFromDate">From Date:</label>
+                    <input type="date" id="foreFromDate" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="foreToDate">To Date:</label>
+                    <input type="date" id="foreToDate" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="frequency">Frequency:</label>
+                    <select id="frequency" class="form-control">
+                        <option value="Daily">Daily</option>
+                        <option value="Weekly">Weekly</option>
+                        <option value="Monthly">Monthly</option>
+                    </select>
+                </div>
+                <button class="btn primary" onclick="forecast()">Forecast</button>
+                
+                <div class="result-container" id="forecastResults">
+                    <div class="loading hidden" id="loadingIndicator">
+                        <i class="fas fa-spinner fa-spin"></i> Processing...
+                    </div>
+                    <div class="table-container">
+                        <table id="forecastTable" class="hidden">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Company Name</th>
+                                    <th>Forecasted Quantity</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="forecastResultsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/scripts.js"></script>
+</body>
+</html>
